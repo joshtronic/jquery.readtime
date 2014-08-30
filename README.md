@@ -4,7 +4,7 @@
 > WPM). We take the total word count of a post and translate it into minutes.
 > Then, we add 12 seconds for each inline image. Boom, read time.
 >
-> &mdash; <cite>[jquery.readtime][MediumReadTime]</cite>
+> &mdash; <cite>[Read Time and You][MediumReadTime]</cite>
 
 [MediumReadTime]: https://medium.com/the-story/read-time-and-you-bc2048ab620c
 
