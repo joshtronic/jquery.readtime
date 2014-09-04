@@ -9,7 +9,6 @@
  * @license The MIT License - http://opensource.org/licenses/MIT
  * @link    https://github.com/joshtronic/jquery.readtime
  */
-
 (function($)
 {
     $.fn.readtime = function(options)
@@ -18,6 +17,8 @@
         var defaults = {
             class:   'readtime',   // Class name of the output element
             format:  '# min read', // # == the number of minutes
+            images:  12,           // Seconds per image, false to disable
+            wpm:     275,          // Words per minute, defaults to average
             wrapper: 'time'        // What the output will be wrapped in
         };
 
@@ -34,10 +35,13 @@
                             .split(' ').length;
 
             // Calculates the read time for the words (in seconds)
-            var time = (words / 275) * 60;
+            var time = (words / options.wpm) * 60;
 
             // Counts any images in the element and adds more time
-            time += ($(this).find('img').length * 12);
+            if (options.images)
+            {
+                time += ($(this).find('img').length * options.images);
+            }
 
             // Gets us back to minutes and rounds to an integer
             time = Math.round(time / 60);
